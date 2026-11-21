@@ -1,6 +1,6 @@
 Spaceship bob;
 Star[] nightSky = new Star[200];
-ArrayList<Asteroid> rocks; // 1. Declare the ArrayList
+ArrayList<Asteroid> rocks; 
 
 public void setup()
 {
@@ -12,7 +12,7 @@ public void setup()
         nightSky[i] = new Star();
     }
     
-    // 2. Initialize the ArrayList and add 5 Asteroids
+
     rocks = new ArrayList<Asteroid>();
     for (int i = 0; i < 5; i++)
     {
@@ -30,14 +30,13 @@ public void draw()
     
     bob.move();
     bob.show();
-    
-    // 3. Loop through the Asteroids backwards (so removing doesn't skip items)
+
     for (int i = rocks.size() - 1; i >= 0; i--)
     {
         Asteroid a = rocks.get(i);
         
-        // 4. Check for collision using dist()
-        if (dist((float)bob.myCenterX, (float)bob.myCenterY, (float)a.getCenterX(), (float)a.getCenterY()) < 20)
+
+       if (dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)a.getCenterX(), (float)a.getCenterY()) < 20)
         {
             rocks.remove(i); // Remove asteroid if it hits the ship
         }
